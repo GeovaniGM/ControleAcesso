@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ControleAcesso.Model
 {
-    public class Pessoa : BaseModel
+    public class Pessoa : BaseObject
     {
         #region Property
+        private Guid id;
+        public Guid Id
+        {
+            get { return id; }
+            set { Set(ref id, value); }
+        }
 
         private string nome;
         public string Nome
@@ -20,8 +26,8 @@ namespace ControleAcesso.Model
         private DateTime dataNascimento;
         public DateTime DataNascimento
         {
-            get { return dataNascimento; }
-            set { Set(ref dataNascimento, value); }
+            get { return dataNascimento > DateTime.MinValue ? dataNascimento.Date : DateTime.Now.Date; }
+            set { Set(ref dataNascimento, value.Date); }
         }
 
         private string cpf;

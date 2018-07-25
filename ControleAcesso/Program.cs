@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleAcesso.DAO;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,11 @@ namespace ControleAcesso
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            using (var context = new AcademiaContext())
+            {
+                context.Database.Migrate();
+            }
+            Application.Run(TelaInicial.Instance);
         }
     }
 }

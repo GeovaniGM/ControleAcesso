@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleAcesso.Model
 {
-    public class Catraca : BaseModel
+    public class Catraca : BaseObject
     {
         #region Construtor
         public Catraca()
@@ -23,6 +23,13 @@ namespace ControleAcesso.Model
             set { Set(ref id, value); }
         }
 
+        private string titulo;
+        public string Titulo
+        {
+            get { return titulo; }
+            set { Set(ref titulo, value); }
+        }
+
         private bool liberada;
         public bool Liberada
         {
@@ -30,14 +37,12 @@ namespace ControleAcesso.Model
             set { Set(ref liberada, value); }
         }
 
-        private bool manutencao;
-        public bool Manutencao
+        private bool operando;
+        public bool Operando
         {
-            get { return manutencao; }
-            set { Set(ref manutencao, value); }
+            get { return operando; }
+            set { Set(ref operando, value); }
         }
-
-
         #endregion
     }
 }

@@ -5,10 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace ControleAcesso.Model
+namespace ControleAcesso.View
 {
-    public class BaseObject : INotifyPropertyChanged
+    public class BaseForm : Form, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -19,7 +20,7 @@ namespace ControleAcesso.Model
 
         protected bool Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
         {
-            if(EqualityComparer<T>.Default.Equals(storage, value))
+            if (EqualityComparer<T>.Default.Equals(storage, value))
             {
                 return false;
             }
